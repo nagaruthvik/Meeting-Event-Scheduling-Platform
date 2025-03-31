@@ -1,0 +1,65 @@
+.settingMain{
+    display: flex;
+    margin: 2vh;
+    flex-direction: column;
+}
+.settingForm{
+    display: flex;
+    width: 90%;
+    height: 70vh;
+    background-color: white;
+    border-radius: 2vh;
+    flex-direction: column;
+    padding-left: 4vh;
+}
+.settingFormValues{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    
+}
+.settingFormValues div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+    width: 50%;
+    
+    
+}
+.settingFormValues input{
+    width: 50%;
+    height: 4vh;
+    border-radius: 1vh;
+    border: 1px solid #3E3E3E;
+}
+.saveBtn{
+    display: flex;
+    width: 95%;
+    align-items: flex-end;
+    
+}
+.saveBtn button{
+    width: 15vh;
+    height: 6vh;
+    border: none;
+    color: white;
+    background-color: #1877F2;
+    border-radius: 1.5vh;
+}
+
+@media screen and (max-width: 767px) {
+    .saveBtn{
+        display: flex;
+        width: 100%;
+        align-items:start ;
+        
+    }
+    .saveBtn button{
+        width: 15vh;
+        height: 6vh;
+        border: none;
+        color: white;
+        background-color: #1877F2 !important;
+        border-radius: 1.5vh;
+    }
+}

@@ -1,0 +1,67 @@
+
+.rbc-calendar {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Arial", sans-serif;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bigCalander{
+  height: 80vh;
+}
+
+
+
+
+.rbc-btn-group button {
+  background: white;
+  color: #007bff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.rbc-btn-group button:hover,
+.rbc-btn-group button.rbc-active {
+  background: #007bff;
+  color: white;
+}
+
+
+
+.rbc-time-slot {
+  min-height: 5vh !important; 
+}
+
+.rbc-time-content > * + * {
+  margin-left: 1vh; 
+}
+
+
+@media screen and (max-width: 767px) {
+  
+.bigCalander{
+  height: 60vh;
+  width: 110%;
+  
+}
+.rbc-header{
+ 
+  min-width: 4vh !important;
+ 
+  
+  padding: 0;
+  background-color: rgba(156, 165, 246, 0.41) !important;
+
+}
+.rbc-btn-group button {
+ display: none;
+}
+.rbc-time-slot {
+  min-width: 3vh !important; 
+}
+
+}

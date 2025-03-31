@@ -1,0 +1,11 @@
+.homePageCont{
+    display: flex;
+    flex-direction: row;
+}
+
+.homePageNav{
+    flex: 3;
+}
+.homePageMain{
+    flex: 7;
+}

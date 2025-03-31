@@ -1,0 +1,334 @@
+body{
+    margin: 5vh;
+}
+#pageContainer{
+    width: 100%;
+    height : auto;
+    background-color: white;
+    
+}
+
+
+#navBar{
+    display:flex ;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2vh;
+    width: 100%;
+    height: auto;
+    background-color: #F0F0F0; 
+    border-radius: 3vh;
+    align-items: center;
+    
+}
+
+#landingPageButton{
+    margin-right: 2vh;
+    width: auto;
+    height: 5vh;
+    background-color: #1877F2;
+    color: white;
+    border: none;
+    border-radius: 2vh;
+    padding: 0vh 2vh 0vh 2vh;
+}
+
+#logSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+#logSection img{
+    width: 4vh;
+    height: 3vh;
+}
+
+#MainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+#headingLandingPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#screen1Img{
+    width: 50%;
+}
+
+
+#subSection{
+    display: flex;
+}
+#subSectionImg1{
+    position: relative;
+    
+    
+    z-index: 1;
+}
+
+#subSectionImg2{
+    position: relative;
+    
+    right: 15vh;
+    z-index: 0;
+}
+#subSectionImg img{
+    width: 40%;
+    height: 70%;
+}
+
+#subSection1{
+    display: flex;
+    flex-direction: row;
+    gap: 15vh;
+    width: 80%;
+}
+
+.blueHeading{
+    color: #1877F2;
+}
+#subSection1 h1{
+    font-size: 2rem;
+}
+.subSection1Heading1{
+    margin-bottom: 0;
+}
+.subSection1Heading2{
+    margin-top: 0;
+}
+#subSection1Btn{
+    color: #1877F2;
+    background-color: white;
+    border: 2px solid #1877F2;
+    padding: 1vh;
+    border-radius: 2vh;
+
+}
+
+
+#chipSection{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+    gap: 3vh;
+}
+.chip{
+    width: 40%;
+    border-radius: 4vh;
+    padding: 2vh;
+}
+
+#chip1, #chip4{
+    background-color: RGB(222, 222, 222);
+}
+.lowerSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vh;
+
+}
+
+.lowerSectionDetials p{
+    margin: 0;
+}
+
+.blueDot{
+    width: 4vh;
+    height: 4vh;
+    border-radius: 100%;
+    background-color: #1877F2;
+
+}
+
+.integration h1{
+    font-size: 2rem;
+}
+
+
+#section3Container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+    gap: 5vh;
+
+}
+
+.Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4vh;
+    align-items: center;
+   
+    
+
+}
+.Container img{
+    width: 8vh;
+    height: 8vh;
+    
+
+
+}
+
+.ContainerDetails {
+    width: 35vh 
+}
+.landingPagefooter{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    box-shadow: 0px 0px 15px 5px rgba(100, 149, 237, 0.5); 
+    border-radius: 10px; 
+    justify-content:center ;
+    align-items: center;
+    padding: 2vh;
+}
+.footerSide1{
+    width: 100%;
+
+    
+    height: auto;
+    display: flex;
+    gap: 10vh;
+    justify-content: center;
+    align-items: center;
+    
+}
+.footerSide2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 45%;
+    gap: 5vh;
+}
+.footerSide2 p{
+
+    width: 10vh;
+    font-size: bold;
+    
+}
+.footerBtnLogIn{
+    background-color: rgb(196, 196, 196);
+    color: black;
+    padding: 2vh;
+    border: none;
+    border-radius: 1vh;
+
+}
+.footerBtnSignUp{
+    background-color: #1877F2;
+    color: white;
+    border-radius: 4vh;
+    padding: 2vh 2vh 2vh 2vh;
+    border: none;
+}
+.footerBtn{
+    display: flex;
+    gap: 1vh;
+}
+.footerIcon{
+    display: flex;
+    flex-direction: row;
+}
+.footerSide3{
+    display: flex;
+    flex-direction:row ;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    gap: 15vh;
+}
+.footerSide3 > p{
+    width: 90%;
+    
+}
+.footerSide3 img{
+    width: 4vh;
+    height: 3vh;
+}
+.footerBtnSignUpMobile{
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    #navBar{
+        width:125%;
+    }
+    #MainContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 5vh;
+        overflow: hidden;
+    }
+    #subSection{
+        display: flex;
+        flex-direction: column-reverse;
+        
+    }
+    #subSectionImg img{
+        width: 50%;
+    }
+    #subSectionImg1{
+        position: relative;
+        
+        
+        z-index: 1;
+    }
+   
+    #subSectionImg2{
+        position: relative;
+        
+        right: 9vh;
+        z-index: 0;
+    }
+    .landingPagefooter{
+        display: flex;
+        flex-direction: column;
+    }
+    .footerSide3 p {
+        display: none;
+    }
+    .footerBtnLogIn{
+        display: none;
+    }
+    .footerSide2{
+        gap: 0vh;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: start;
+       
+        
+    }
+    .footerBtnSignUp{
+        display: none;
+    }
+    .footerBtnSignUpMobile{
+        display: inline;
+        background-color: #1877F2;
+        color: white;
+        border-radius: 4vh;
+        padding: 2vh 2vh 2vh 2vh;
+        border: none;
+    }
+   
+    
+  }
+  
+
+
+  

@@ -1,0 +1,50 @@
+.mobileNav{
+    display: none;
+}
+@media screen and (max-width: 767px) {
+    .mobileNav{
+        position: relative;
+        top: 0;
+        width: 99%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .compAlign{
+        display: flex;
+        align-items: center;
+    
+    }
+    
+    .compAlign img{ 
+        width: 4vh;
+        height: 4vh;
+    }
+    .profileBanner{
+        display: flex;
+        align-items: center;
+    
+    
+    }
+    .profileBanner img{
+        width: 4vh;
+        height: 4vh;
+        
+    }
+    .logout{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 1%;
+        width: 18vh;
+        bottom: 10vh;
+        background-color: #F3F3F1;
+        border-radius: 4vh;
+        box-shadow:2px 2px 10px rgba(0, 0, 0, 0.3);;
+    }
+    .logout img{
+        
+        width: 3vh;
+        height: 3vh;
+    }
+}

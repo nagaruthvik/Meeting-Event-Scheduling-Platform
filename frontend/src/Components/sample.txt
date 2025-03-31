@@ -1,0 +1,75 @@
+  const dataUserFetching = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/user/sorted/${localStorage.getItem("userId")}`, {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        console.log("No user data available");
+        return;
+      }
+
+      const result = await response.json();
+      const newEventIds = result.result.events.map((item) => item.eventId);
+      setEventId((prevEventId) => [...new Set([...prevEventId, ...newEventIds])]);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+
+  {Object.entries(available).map(([day, details]) => (
+            <div className={styles.avDisplayItems} key={day}>
+              <p>{day}</p>
+              <input
+                type="checkbox"
+                checked={details.available}
+                onChange={() => changleAvailability(day)}
+              />
+              {details.available && (
+                <AddAvailability
+                  slots={details.Availability}
+                  handleRemove={removeAvailabilityItem}
+                  day={day}
+                />
+              )}
+              <div>
+                <button
+                  className={styles.avDisplayRemove}
+                  onClick={() => addAvailabilityItem(day)}
+                >
+                  +
+                </button>
+                <button className={styles.avDisplayRemove}>
+                  <img src="./copy.png" alt="" />
+                </button>
+              </div>
+            </div>
+          ))}
+
+  const changleAvailability = (day) => {
+    setAvailable((pre) => ({
+      ...pre,
+      [day]: { ...pre[day], available: !pre[day].available }
+    }));
+  };
+
+  const addAvailabilityItem = (day) => {
+    setAvailable((pre) => ({
+      ...pre,
+      [day]: {
+        ...pre[day],
+        Availability: [...pre[day].Availability, { start: "",end: "" }]
+      }
+    }));
+  };
+
+  const removeAvailabilityItem = (day, index) => {
+    setAvailable((pre) => ({
+      ...pre,
+      [day]: {
+        ...pre[day],
+        Availability: pre[day].Availability.filter((_, i) => i !== index)
+      }
+    }));
+  };

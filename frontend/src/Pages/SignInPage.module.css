@@ -1,0 +1,155 @@
+body{
+    margin: 0;
+}
+.mainForm{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+.formSection{
+    flex: 7;
+
+    display: flex;
+    flex-direction: column;
+   
+    align-items: center;
+    gap: 2vh;
+}
+.logBanner{
+    padding-left: 2vh;
+    align-self: flex-start; 
+    display: flex;
+   
+    align-items: center;
+}
+.logBanner img{
+    width: 4.5vh;
+    height: 4.5vh;
+}
+
+.labelInput{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.singIn{
+    margin-right: 37vh;
+    font-size: 2rem;
+}
+.checkBox{
+    display: flex;
+    align-items: center;
+    width: 34%;
+}
+
+.passwordWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .togglePassword {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #007bff;
+  }
+  
+.inputFields{
+    width: 50vh;
+    height: 4.5vh;
+    border: none;
+    border-radius: 1vh;
+    background-color: #EFF0EC;
+    padding-left: 1vh;
+}
+.inputFields::placeholder{
+    color: #A8AAA2;
+}
+.createAccountBtn{
+    width: 50vh;
+    height: 6vh;
+    border-radius: 3vh;
+    color: white;
+    background-color: #EFF0EC;
+    border: none;
+    margin-top: 5vh;
+    color: #A8AAA2;
+}
+.dontHaveAcc{
+    margin-top: 5vh;
+}
+.imgSection{
+    flex: 3;
+}
+
+.imgSection img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.displayEnd{
+position: absolute;
+bottom: 0;
+}
+
+.h1Mobile{
+    display: none;
+}
+.mobileLabel{
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+   
+    
+
+    .h1Mobile{
+        display: contents;
+        font-size: 2rem;
+    }
+    .singIn{
+        display: none;
+    }
+    .imgSection{
+        display: none;
+    }
+    .mobileLabel{
+        display: contents;
+    }
+
+    .createAccountBtn{
+        width: 35vh;
+        height: 6vh;
+        border-radius: 3vh;
+        color: white;
+        background-color: #1877F2;
+        border: none;
+    }
+    .inputFields{
+        width: 35vh;
+        height: 4.5vh;
+        border: 1px solid #E0E2D9;
+        background-color: white;
+        border-radius: 1vh;
+    }
+    .inputFields::placeholder {
+        color: transparent;
+    }
+   
+    .displayEnd{
+        font-size: 0.6rem;
+        bottom: 5vh;
+    }
+
+    
+
+}

@@ -1,0 +1,37 @@
+.eventDisplay{
+    width: 100%;
+    height: 100%;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+  
+   
+}
+
+.eventDisplaySection1{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eventDisplayBtn{
+    width: 18vh;
+    height: 7vh;
+    border-radius: 4vh;
+    border: 2px solid #1877F2;
+    color: #1877F2;
+    background-color: transparent;
+}
+.eventDisplayBox{
+    padding: 2vh;
+    
+    display: flex;
+    gap: 4vh;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 767px) {
+    .eventDisplayBox{
+        width: 95%;
+    }
+}

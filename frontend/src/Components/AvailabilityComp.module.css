@@ -1,0 +1,117 @@
+.avMain{
+    display: flex;
+    flex-direction: column;
+    padding: 2vh;
+}
+.avBtn{
+    display: flex;
+    gap: 2vh;
+    background-color: #E8E8E8;
+    width: 40vh;
+    height: 5vh;
+    align-items: center;
+    padding: 1vh;
+    
+}
+.avBtn1{
+    width: auto;
+    height: 8vh;
+    border: none;
+    background-color: transparent;
+}
+.avBtnCont1,.avBtnCont2 {
+    display: flex;
+    align-items: center;
+    gap: 2vh;
+}
+.avBtnCont1 img{
+    width: 2vh;
+    height:1.5vh;
+}
+.avDisplay{
+    width: 40%;
+    height: 75vh;
+    background-color: white;
+    border-radius: 2vh;
+    border: 2px solid lightgray;
+    overflow-y: scroll;
+}
+.avDisplayHeading{
+    display: flex;
+    align-items: center;
+    
+    padding-left:1vh;
+    gap: 20vh;
+}
+.avDisplayFeild{
+    display: flex;
+    align-items: center;
+    gap: 2vh;
+}
+.avDisplayHeadingBlue{
+    color: #1877F2;
+    font-size: 0.7rem;
+}
+.avDisplayItems{
+    display: flex;
+    gap: 5vh;
+    padding-left: 1vh;
+}
+.avDisplayInput{
+    width: 10vh;
+    height: 4vh;
+}
+.avDisplayRemove{
+    border: none;
+    background-color: transparent;
+}
+.BigCalander{
+    width: 100%;
+    height: 90%;
+    background-color: white;
+}
+.BigCalanderP{
+    width: 100%;
+    display: flex;
+    padding-left: 2vh;
+    gap: 5vh;
+}
+@media screen and (max-width: 767px) {
+    .avMain{
+        background-color: white;
+        overflow: hidden;
+    }
+    .avBtn{
+        display: flex;
+        gap: 2vh; 
+        background-color: #E8E8E8;
+        width: 35vh;
+        height: 3vh;
+        align-items: center;
+        padding: 1vh;
+        
+    }
+    .avBtn1{
+        width: 20vh;
+        height: 8vh;
+        border: none;
+        background-color: transparent;
+    }
+    .avDisplay{
+        width: 95%;
+        height: 66vh;
+        background-color: white;
+    }
+    .BigCalanderP{
+        display: none;
+    }
+    .BigCalander{
+        background-color: transparent;
+    }
+    .avDisplay{
+        width: 100%;
+    }
+    .avDisplayRemove{
+        background-color: transparent !important;
+    }
+}
