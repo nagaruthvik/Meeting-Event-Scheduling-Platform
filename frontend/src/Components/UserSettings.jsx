@@ -6,10 +6,10 @@ import GetUserDetails from "./GetUserDetails";
 import NabBarMobile from "./NabBarMobile";
 import { useNavigate } from "react-router";
 
-
 export default function UserSettings() {
-    const apiUrl = import.meta.env.VITE_API_KEY
-    const navigate = useNavigate()
+    const apiUrl = import.meta.env.VITE_API_KEY;
+    const navigate = useNavigate();
+    const [isLoading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -26,6 +26,7 @@ export default function UserSettings() {
     };
 
     useEffect(() => {
+        setLoading(true);
         const getUserDet = async () => {
             try {
                 const data = await GetUserDetails([localStorage.getItem("userId")], true);
@@ -39,6 +40,8 @@ export default function UserSettings() {
                 }
             } catch (error) {
                 console.error("Error fetching user details:", error);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -61,6 +64,7 @@ export default function UserSettings() {
         };
 
         try {
+            setLoading(true);
             const response = await fetch(`${apiUrl}user/updateUser/${localStorage.getItem("userId")}`, {
                 method: "PUT",
                 headers: {
@@ -76,99 +80,105 @@ export default function UserSettings() {
             }
 
             toast.success(result.message, { position: "top-center" });
-            navigate("/")
+            navigate("/");
         } catch (error) {
             toast.error(error.message, { position: "top-center" });
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
-        <div className={styles.settingMain}>
-            <NabBarMobile/>
-            <div>
-                <h4>Profile</h4>
-                <p>Manage settings for your profile</p>
+        <>
+            {isLoading && (
+                <div className={styles.loadingCont}>
+                    <h2 className={styles.simpleLoader}></h2>
+                </div>
+            )}
+            <div className={styles.settingMain}>
+                <NabBarMobile />
+                <div>
+                    <h4>Profile</h4>
+                    <p>Manage settings for your profile</p>
+                </div>
+                <div className={styles.settingForm}>
+                    <p>Edit</p>
+                    <hr />
+                    <form className={styles.settingFormValues} onSubmit={handleSubmit}>
+                        <div className={styles.settingFormFeild}>
+                            <label>First name</label>
+                            <input
+                                className={styles.settingFormInput}
+                                type="text"
+                                name="firstName"
+                                value={formData.firstName}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className={styles.settingFormFeild}>
+                            <label>Last name</label>
+                            <input
+                                className={styles.settingFormInput}
+                                type="text"
+                                name="lastName"
+                                value={formData.lastName}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className={styles.settingFormFeild}>
+                            <label>Email</label>
+                            <input
+                                className={styles.settingFormInput}
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className={styles.settingFormFeild}>
+                            <label>Password</label>
+                            <input
+                                className={styles.settingFormInput}
+                                type="password"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className={styles.settingFormFeild}>
+                            <label>Confirm Password</label>
+                            <input
+                                className={styles.settingFormInput}
+                                type="password"
+                                name="cPassword"
+                                value={formData.cPassword}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className={styles.saveBtn}>
+                            <button type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+                <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={false}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+                    transition={Bounce}
+                />
             </div>
-            <div className={styles.settingForm}>
-                <p>Edit</p>
-                <hr />
-                <form className={styles.settingFormValues} onSubmit={handleSubmit}>
-                    <div className={styles.settingFormFeild}>
-                        <label>First name</label>
-                        <input
-                            className={styles.settingFormInput}
-                            type="text"
-                            name="firstName"
-                            value={formData.firstName}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div>
-                        <label>Last name</label>
-                        <input
-                            className={styles.settingFormInput}
-                            type="text"
-                            name="lastName"
-                            value={formData.lastName}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div>
-                        <label>Email</label>
-                        <input
-                            className={styles.settingFormInput}
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div>
-                        <label>Password</label>
-                        <input
-                            className={styles.settingFormInput}
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                        />
-                    </div>
-                   
-
-
-                    <div>
-                        <label>Confirm Password</label>
-                        <input
-                            className={styles.settingFormInput}
-                            type="password"
-                            name="cPassword"
-                            value={formData.cPassword}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div className={styles.saveBtn}>
-                        <button type="submit">Save</button>
-                    </div>
-                </form>
-               
-            </div>
-            <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-                transition={Bounce}
-            />
-        </div>
+        </>
     );
 }

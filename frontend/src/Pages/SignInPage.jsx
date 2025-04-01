@@ -6,16 +6,15 @@ import styles from "./SignInPage.module.css";
 import { NavBarContext } from "../Components/NavBarContext";
 
 export default function SignInPage() {
-
- 
-  const apiUrl = import.meta.env.VITE_API_KEY
-  const navigate = useNavigate()
+  const [ isLoading, setLoading ] = useState(false);
+  const apiUrl = import.meta.env.VITE_API_KEY;
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleFormData = (e) => {
     setFormData({
@@ -26,6 +25,7 @@ export default function SignInPage() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); 
 
     try {
       const fetchApi = await fetch(`${apiUrl}user/signin`, {
@@ -33,50 +33,47 @@ export default function SignInPage() {
         headers: {
           "Content-Type": "application/json",
         },
-
         body: JSON.stringify(formData),
         credentials: "include",
       });
       const response = await fetchApi.json();
 
-
       if (fetchApi.status !== 200) {
-        return toast.error(response.message, { position: "top-center" });
+        toast.error(response.message, { position: "top-center" });
       } else {
-        const getData = await fetch(`${apiUrl}user/${response.id}`,{
-          method:"GET",
+        const getData = await fetch(`${apiUrl}user/${response.id}`, {
+          method: "GET",
           headers: {
             "Content-Type": "application/json",
-          }
+          },
+        });
+        const isUserId = await getData.json();
+        localStorage.setItem("username", isUserId.result.userName);
+        localStorage.setItem("userId", isUserId.result._id);
 
-        })
-        const isUserId =await getData.json()
-        localStorage.setItem("username",isUserId.result.userName);
-        localStorage.setItem("userId",isUserId.result._id);
-       console.log(isUserId.result.userName)
-        
-        if(isUserId.result.userName !== undefined){
-
-
-          
-          navigate("/HomePage")
-        }
-        else{
-          
-          navigate("/Preference")
+        if (isUserId.result.userName !== undefined) {
+          navigate("/HomePage");
+        } else {
+          navigate("/Preference");
         }
         toast.success(response.message, { position: "top-center" });
-        
       }
     } catch (e) {
       console.log(e);
       toast.error("Something went wrong!", { position: "top-center" });
-      
+    } finally {
+      setLoading(false); 
     }
   };
 
   return (
     <>
+      {isLoading && (
+        <div className={styles.loadingCont}>
+         <h2 className={styles.simpleLoader}></h2>
+        </div>
+      )}
+
       <form className={styles.mainForm} onSubmit={handleFormSubmit}>
         <section className={styles.formSection}>
           <div className={styles.logBanner}>
@@ -108,7 +105,7 @@ export default function SignInPage() {
             <div className={styles.passwordWrapper}>
               <input
                 className={`${styles.inputFields} ${styles.desktopLabel}`}
-                type={showPassword ? "text" : "password"} 
+                type={showPassword ? "text" : "password"}
                 id="password"
                 value={formData.password}
                 onChange={handleFormData}
@@ -120,7 +117,11 @@ export default function SignInPage() {
                 className={styles.togglePassword}
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ?  <img style={{width:"2vh", height:"2vh"}} src="./view.png" alt="" /> : <img src="./eye.png" alt="" /> } 
+                {showPassword ? (
+                  <img style={{ width: "2vh", height: "2vh" }} src="./view.png" alt="" />
+                ) : (
+                  <img src="./eye.png" alt="" />
+                )}
               </button>
             </div>
           </div>

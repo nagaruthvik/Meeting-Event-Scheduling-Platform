@@ -76,6 +76,8 @@
     padding-left: 2vh;
     gap: 5vh;
 }
+
+  
 @media screen and (max-width: 767px) {
     .avMain{
         background-color: white;
