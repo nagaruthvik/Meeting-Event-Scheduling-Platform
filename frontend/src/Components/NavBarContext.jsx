@@ -7,9 +7,9 @@ export default function NavBarProvider({ children }) {
     const [eventId,setEventId] = useState("")
     const [userData,setUserData] = useState([])
     const [ userId,setUserId ] = useState()
-    const [isLoding,setLoading] = useState(false)
+
     return (
-      <NavBarContext.Provider value={{ selectedNav, setSelectedNav, eventId,setEventId, userId,setUserId ,userData,setUserData,isLoding,setLoading}}>
+      <NavBarContext.Provider value={{ selectedNav, setSelectedNav, eventId,setEventId, userId,setUserId ,userData,setUserData}}>
         {children} 
       </NavBarContext.Provider>
     );
