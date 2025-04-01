@@ -18,7 +18,7 @@ dotenv.config()
 
 const app = express()
 app.use(cors({
-    origin: "*",
+    origin: "https://meeting-event-scheduling-platform.vercel.app",
     credentials: true,
     
 }));
