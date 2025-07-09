@@ -20,10 +20,8 @@ const app = express()
 app.use(cors({
     origin: "https://meeting-event-scheduling-platform.vercel.app",
     credentials: true,
+    
 }));
-
-// Handle preflight OPTIONS requests
-app.options('*', cors()); 
 
 app.use(bodyParser.json())
 app.use(errorLogger)
